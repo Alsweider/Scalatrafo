@@ -26,6 +26,8 @@ private slots:
 
     void on_pushButtonKopieren_clicked();
 
+    void on_spinBoxBewertung1_valueChanged(double arg1);
+
 private:
     Ui::MainWindow *ui;
 };

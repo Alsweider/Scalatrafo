@@ -71,3 +71,9 @@ void MainWindow::on_pushButtonKopieren_clicked()
     QApplication::clipboard()->setText(ui->labelBewertung->text());
 }
 
+
+void MainWindow::on_spinBoxBewertung1_valueChanged(double arg1)
+{
+    on_pushButtonTransform_clicked();
+}
+
