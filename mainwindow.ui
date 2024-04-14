@@ -6,12 +6,12 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>404</width>
+    <width>396</width>
     <height>205</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Scalatrafo v0.0.2</string>
+   <string>Scalatrafo v0.0.3</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout_3">
@@ -171,7 +171,7 @@
             </layout>
            </item>
            <item>
-            <layout class="QVBoxLayout" name="verticalLayout_7">
+            <layout class="QVBoxLayout" name="verticalLayout_4">
              <item>
               <widget class="QDoubleSpinBox" name="spinBoxMin2">
                <property name="styleSheet">
@@ -188,6 +188,18 @@
              </item>
              <item>
               <widget class="QLabel" name="labelBewertung">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>25</height>
+                </size>
+               </property>
                <property name="toolTip">
                 <string>Umgerechnete Bewertung.</string>
                </property>
@@ -200,9 +212,6 @@
               </widget>
              </item>
             </layout>
-           </item>
-           <item>
-            <layout class="QVBoxLayout" name="verticalLayout_4"/>
            </item>
           </layout>
          </item>
