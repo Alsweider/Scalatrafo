@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include <QClipboard>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -36,15 +37,19 @@ void MainWindow::on_pushButtonTransform_clicked()
     float spinBoxMax2 = ui->spinBoxMax2->value();
     float spinBoxBewertung1 = ui->spinBoxBewertung1->value();
 
-
-    //Steigung berechnen
+    //Lineare Abbildung berechnen
     float steigung = ((spinBoxMax2-spinBoxMin2)/(spinBoxMax1-spinBoxMin1));
     float yAchse = (spinBoxMin2 - (steigung * spinBoxMin1));
     float ergebnis = ((steigung*spinBoxBewertung1)+yAchse);
 
-    QString ergebnisText = QString::number(ergebnis);
+    //Ergebnis in Zeichenkette umwandeln
+    //QString ergebnisText = QString::number(ergebnis);
+    QString ergebnisText = QLocale::system().toString(ergebnis, 'f', 2);
 
     ui->labelBewertung->setText(ergebnisText);
+
+    //Kopieren-Schaltfläche aktivieren
+    ui->pushButtonKopieren->setEnabled(true);
 
 }
 
@@ -55,4 +60,14 @@ void MainWindow::on_pushButtonBeenden_clicked()
 }
 
 
+void MainWindow::on_spinBoxMax2_editingFinished()
+{
+    on_pushButtonTransform_clicked();
+}
+
+
+void MainWindow::on_pushButtonKopieren_clicked()
+{
+    QApplication::clipboard()->setText(ui->labelBewertung->text());
+}
 

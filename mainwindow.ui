@@ -6,224 +6,263 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>406</width>
-    <height>207</height>
+    <width>404</width>
+    <height>205</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Scalatrafo v0.0.1</string>
+   <string>Scalatrafo v0.0.2</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <layout class="QGridLayout" name="gridLayout_4">
+   <layout class="QGridLayout" name="gridLayout_3">
     <item row="0" column="0">
-     <layout class="QVBoxLayout" name="verticalLayout_5">
+     <layout class="QHBoxLayout" name="horizontalLayout_4">
       <item>
-       <layout class="QGridLayout" name="gridLayout_3">
-        <item row="0" column="0">
-         <widget class="QGroupBox" name="groupBox">
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">font: 14pt &quot;Times New Roman&quot;;</string>
-          </property>
-          <property name="title">
-           <string>Scala 1</string>
-          </property>
-          <layout class="QGridLayout" name="gridLayout">
-           <item row="0" column="0">
-            <layout class="QHBoxLayout" name="horizontalLayout">
-             <item>
-              <layout class="QVBoxLayout" name="verticalLayout">
-               <item>
-                <widget class="QLabel" name="label">
-                 <property name="styleSheet">
-                  <string notr="true">font: 14pt &quot;Times New Roman&quot;;</string>
-                 </property>
-                 <property name="text">
-                  <string>Minimum:</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QLabel" name="label_2">
-                 <property name="styleSheet">
-                  <string notr="true">font: 14pt &quot;Times New Roman&quot;;</string>
-                 </property>
-                 <property name="text">
-                  <string>Maximum:</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QLabel" name="label_3">
-                 <property name="styleSheet">
-                  <string notr="true">font: 14pt &quot;Times New Roman&quot;;</string>
-                 </property>
-                 <property name="text">
-                  <string>Bewertung:</string>
-                 </property>
-                </widget>
-               </item>
-              </layout>
-             </item>
-             <item>
-              <layout class="QVBoxLayout" name="verticalLayout_6">
-               <item>
-                <widget class="QDoubleSpinBox" name="spinBoxMin1">
-                 <property name="styleSheet">
-                  <string notr="true">font: 14pt &quot;Times New Roman&quot;;</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QDoubleSpinBox" name="spinBoxMax1">
-                 <property name="styleSheet">
-                  <string notr="true">font: 14pt &quot;Times New Roman&quot;;</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QDoubleSpinBox" name="spinBoxBewertung1">
-                 <property name="styleSheet">
-                  <string notr="true">font: 14pt &quot;Times New Roman&quot;;</string>
-                 </property>
-                </widget>
-               </item>
-              </layout>
-             </item>
-             <item>
-              <layout class="QVBoxLayout" name="verticalLayout_2"/>
-             </item>
-            </layout>
-           </item>
-          </layout>
-         </widget>
-        </item>
-        <item row="0" column="1">
-         <widget class="QGroupBox" name="groupBox_3">
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">font: 14pt &quot;Times New Roman&quot;;</string>
-          </property>
-          <property name="title">
-           <string>Scala 2</string>
-          </property>
-          <layout class="QGridLayout" name="gridLayout_2">
-           <item row="0" column="0">
-            <layout class="QHBoxLayout" name="horizontalLayout_2">
-             <item>
-              <layout class="QVBoxLayout" name="verticalLayout_3">
-               <item>
-                <widget class="QLabel" name="label_4">
-                 <property name="styleSheet">
-                  <string notr="true">font: 14pt &quot;Times New Roman&quot;;</string>
-                 </property>
-                 <property name="text">
-                  <string>Minimum:</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QLabel" name="label_5">
-                 <property name="styleSheet">
-                  <string notr="true">font: 14pt &quot;Times New Roman&quot;;</string>
-                 </property>
-                 <property name="text">
-                  <string>Maximum:</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QLabel" name="label_6">
-                 <property name="styleSheet">
-                  <string notr="true">font: 14pt &quot;Times New Roman&quot;;</string>
-                 </property>
-                 <property name="text">
-                  <string>Bewertung:</string>
-                 </property>
-                </widget>
-               </item>
-              </layout>
-             </item>
-             <item>
-              <layout class="QVBoxLayout" name="verticalLayout_7">
-               <item>
-                <widget class="QDoubleSpinBox" name="spinBoxMin2">
-                 <property name="styleSheet">
-                  <string notr="true">font: 14pt &quot;Times New Roman&quot;;</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QDoubleSpinBox" name="spinBoxMax2">
-                 <property name="styleSheet">
-                  <string notr="true">font: 14pt &quot;Times New Roman&quot;;</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QLabel" name="labelBewertung">
-                 <property name="styleSheet">
-                  <string notr="true">font: 14pt &quot;Times New Roman&quot;;</string>
-                 </property>
-                 <property name="text">
-                  <string>0</string>
-                 </property>
-                </widget>
-               </item>
-              </layout>
-             </item>
-             <item>
-              <layout class="QVBoxLayout" name="verticalLayout_4"/>
-             </item>
-            </layout>
-           </item>
-          </layout>
-         </widget>
-        </item>
-       </layout>
-      </item>
-      <item>
-       <layout class="QHBoxLayout" name="horizontalLayout_3">
-        <item>
-         <widget class="QPushButton" name="pushButtonTransform">
-          <property name="text">
-           <string>Transformieren</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QPushButton" name="pushButtonBeenden">
-          <property name="text">
-           <string>Beenden</string>
-          </property>
-         </widget>
-        </item>
-       </layout>
-      </item>
-      <item>
-       <widget class="QLabel" name="labelFusszeile">
+       <widget class="QGroupBox" name="groupBox">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
         <property name="styleSheet">
-         <string notr="true">font: 8pt &quot;Segoe UI&quot;;</string>
+         <string notr="true">font: 14pt &quot;Times New Roman&quot;;</string>
+        </property>
+        <property name="title">
+         <string>Scala 1</string>
+        </property>
+        <layout class="QGridLayout" name="gridLayout">
+         <item row="0" column="1">
+          <layout class="QHBoxLayout" name="horizontalLayout">
+           <item>
+            <layout class="QVBoxLayout" name="verticalLayout">
+             <item>
+              <widget class="QLabel" name="label">
+               <property name="toolTip">
+                <string>Niedrigstmöglicher Wert von Scala 1.</string>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">font: 14pt &quot;Times New Roman&quot;;</string>
+               </property>
+               <property name="text">
+                <string>Minimum:</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="label_2">
+               <property name="toolTip">
+                <string>Größtmöglicher Wert von Scala 1.</string>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">font: 14pt &quot;Times New Roman&quot;;</string>
+               </property>
+               <property name="text">
+                <string>Maximum:</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="label_3">
+               <property name="toolTip">
+                <string>Ein Wert zwischen Minimum und Maximum auf Scala 1.</string>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">font: 14pt &quot;Times New Roman&quot;;</string>
+               </property>
+               <property name="text">
+                <string>Bewertung:</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <layout class="QVBoxLayout" name="verticalLayout_6">
+             <item>
+              <widget class="QDoubleSpinBox" name="spinBoxMin1">
+               <property name="styleSheet">
+                <string notr="true">font: 14pt &quot;Times New Roman&quot;;</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QDoubleSpinBox" name="spinBoxMax1">
+               <property name="styleSheet">
+                <string notr="true">font: 14pt &quot;Times New Roman&quot;;</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QDoubleSpinBox" name="spinBoxBewertung1">
+               <property name="styleSheet">
+                <string notr="true">font: 14pt &quot;Times New Roman&quot;;</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <layout class="QVBoxLayout" name="verticalLayout_2"/>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item>
+       <widget class="QGroupBox" name="groupBox_3">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">font: 14pt &quot;Times New Roman&quot;;</string>
+        </property>
+        <property name="title">
+         <string>Scala 2</string>
+        </property>
+        <layout class="QGridLayout" name="gridLayout_2">
+         <item row="0" column="0">
+          <layout class="QHBoxLayout" name="horizontalLayout_2">
+           <item>
+            <layout class="QVBoxLayout" name="verticalLayout_3">
+             <item>
+              <widget class="QLabel" name="label_4">
+               <property name="toolTip">
+                <string>Niedrigstmöglicher Wert von Scala 2.</string>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">font: 14pt &quot;Times New Roman&quot;;</string>
+               </property>
+               <property name="text">
+                <string>Minimum:</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="label_5">
+               <property name="toolTip">
+                <string>Größtmöglicher Wert von Scala 2.</string>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">font: 14pt &quot;Times New Roman&quot;;</string>
+               </property>
+               <property name="text">
+                <string>Maximum:</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="label_6">
+               <property name="toolTip">
+                <string>Der von Scala 1 nach Scala 2 übertragene Wert.</string>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">font: 14pt &quot;Times New Roman&quot;;</string>
+               </property>
+               <property name="text">
+                <string>Bewertung:</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <layout class="QVBoxLayout" name="verticalLayout_7">
+             <item>
+              <widget class="QDoubleSpinBox" name="spinBoxMin2">
+               <property name="styleSheet">
+                <string notr="true">font: 14pt &quot;Times New Roman&quot;;</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QDoubleSpinBox" name="spinBoxMax2">
+               <property name="styleSheet">
+                <string notr="true">font: 14pt &quot;Times New Roman&quot;;</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="labelBewertung">
+               <property name="toolTip">
+                <string>Umgerechnete Bewertung.</string>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">font: 700 14pt &quot;Times New Roman&quot;;</string>
+               </property>
+               <property name="text">
+                <string>0</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <layout class="QVBoxLayout" name="verticalLayout_4"/>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item row="1" column="0">
+     <layout class="QHBoxLayout" name="horizontalLayout_3">
+      <item>
+       <widget class="QPushButton" name="pushButtonTransform">
+        <property name="toolTip">
+         <string>Überträgt die Bewertung von Scala 1 nach Scala 2.</string>
         </property>
         <property name="text">
-         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;right&quot;&gt;(Programmierung: &lt;a href=&quot;https://github.com/Alsweider/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0078d7;&quot;&gt;Alsweider&lt;/span&gt;&lt;/a&gt;)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         <string>Transformieren</string>
         </property>
-        <property name="openExternalLinks">
-         <bool>true</bool>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="pushButtonKopieren">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="toolTip">
+         <string>Kopiert das Ergebnis in die Zwischenablage.</string>
+        </property>
+        <property name="text">
+         <string>Kopieren</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="pushButtonBeenden">
+        <property name="toolTip">
+         <string>Schließt das Programm.</string>
+        </property>
+        <property name="text">
+         <string>Beenden</string>
         </property>
        </widget>
       </item>
      </layout>
+    </item>
+    <item row="2" column="0">
+     <widget class="QLabel" name="labelFusszeile">
+      <property name="styleSheet">
+       <string notr="true">font: 8pt &quot;Segoe UI&quot;;</string>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;right&quot;&gt;(Programmierung: &lt;a href=&quot;https://github.com/Alsweider/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0078d7;&quot;&gt;Alsweider&lt;/span&gt;&lt;/a&gt;)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+      </property>
+      <property name="openExternalLinks">
+       <bool>true</bool>
+      </property>
+     </widget>
     </item>
    </layout>
   </widget>

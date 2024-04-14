@@ -22,6 +22,10 @@ private slots:
 
     void on_pushButtonBeenden_clicked();
 
+    void on_spinBoxMax2_editingFinished();
+
+    void on_pushButtonKopieren_clicked();
+
 private:
     Ui::MainWindow *ui;
 };
