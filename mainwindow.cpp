@@ -6,6 +6,20 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+
+    //Grenzwerte für die Drehkästchen voll aufdrehen
+    ui->spinBoxMin1->setMaximum(std::numeric_limits<double>::max());
+    ui->spinBoxMin2->setMaximum(std::numeric_limits<double>::max());
+    ui->spinBoxMax1->setMaximum(std::numeric_limits<double>::max());
+    ui->spinBoxMax2->setMaximum(std::numeric_limits<double>::max());
+    ui->spinBoxBewertung1->setMaximum(std::numeric_limits<double>::max());
+    ui->spinBoxMin1->setMinimum(-std::numeric_limits<double>::max());
+    ui->spinBoxMin2->setMinimum(-std::numeric_limits<double>::max());
+    ui->spinBoxMax1->setMinimum(-std::numeric_limits<double>::max());
+    ui->spinBoxMax2->setMinimum(-std::numeric_limits<double>::max());
+    ui->spinBoxBewertung1->setMinimum(-std::numeric_limits<double>::max());
+
+
 }
 
 MainWindow::~MainWindow()

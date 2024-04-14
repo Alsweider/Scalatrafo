@@ -6,20 +6,20 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>432</width>
-    <height>190</height>
+    <width>406</width>
+    <height>207</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Scalatrafo v0.0.1</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <layout class="QGridLayout" name="gridLayout_3">
+   <layout class="QGridLayout" name="gridLayout_4">
     <item row="0" column="0">
      <layout class="QVBoxLayout" name="verticalLayout_5">
       <item>
-       <layout class="QHBoxLayout" name="horizontalLayout_4">
-        <item>
+       <layout class="QGridLayout" name="gridLayout_3">
+        <item row="0" column="0">
          <widget class="QGroupBox" name="groupBox">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
@@ -71,72 +71,39 @@
               </layout>
              </item>
              <item>
-              <layout class="QVBoxLayout" name="verticalLayout_2">
+              <layout class="QVBoxLayout" name="verticalLayout_6">
                <item>
-                <widget class="QSpinBox" name="spinBoxMin1">
-                 <property name="sizePolicy">
-                  <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                   <horstretch>0</horstretch>
-                   <verstretch>0</verstretch>
-                  </sizepolicy>
-                 </property>
+                <widget class="QDoubleSpinBox" name="spinBoxMin1">
                  <property name="styleSheet">
                   <string notr="true">font: 14pt &quot;Times New Roman&quot;;</string>
-                 </property>
-                 <property name="minimum">
-                  <number>-100000</number>
-                 </property>
-                 <property name="maximum">
-                  <number>100000</number>
                  </property>
                 </widget>
                </item>
                <item>
-                <widget class="QSpinBox" name="spinBoxMax1">
-                 <property name="sizePolicy">
-                  <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                   <horstretch>0</horstretch>
-                   <verstretch>0</verstretch>
-                  </sizepolicy>
-                 </property>
+                <widget class="QDoubleSpinBox" name="spinBoxMax1">
                  <property name="styleSheet">
                   <string notr="true">font: 14pt &quot;Times New Roman&quot;;</string>
-                 </property>
-                 <property name="minimum">
-                  <number>-100000</number>
-                 </property>
-                 <property name="maximum">
-                  <number>100000</number>
                  </property>
                 </widget>
                </item>
                <item>
-                <widget class="QSpinBox" name="spinBoxBewertung1">
-                 <property name="sizePolicy">
-                  <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                   <horstretch>0</horstretch>
-                   <verstretch>0</verstretch>
-                  </sizepolicy>
-                 </property>
+                <widget class="QDoubleSpinBox" name="spinBoxBewertung1">
                  <property name="styleSheet">
                   <string notr="true">font: 14pt &quot;Times New Roman&quot;;</string>
-                 </property>
-                 <property name="minimum">
-                  <number>-100000</number>
-                 </property>
-                 <property name="maximum">
-                  <number>100000</number>
                  </property>
                 </widget>
                </item>
               </layout>
+             </item>
+             <item>
+              <layout class="QVBoxLayout" name="verticalLayout_2"/>
              </item>
             </layout>
            </item>
           </layout>
          </widget>
         </item>
-        <item>
+        <item row="0" column="1">
          <widget class="QGroupBox" name="groupBox_3">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
@@ -188,42 +155,18 @@
               </layout>
              </item>
              <item>
-              <layout class="QVBoxLayout" name="verticalLayout_4">
+              <layout class="QVBoxLayout" name="verticalLayout_7">
                <item>
-                <widget class="QSpinBox" name="spinBoxMin2">
-                 <property name="sizePolicy">
-                  <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                   <horstretch>0</horstretch>
-                   <verstretch>0</verstretch>
-                  </sizepolicy>
-                 </property>
+                <widget class="QDoubleSpinBox" name="spinBoxMin2">
                  <property name="styleSheet">
                   <string notr="true">font: 14pt &quot;Times New Roman&quot;;</string>
-                 </property>
-                 <property name="minimum">
-                  <number>-100000</number>
-                 </property>
-                 <property name="maximum">
-                  <number>100000</number>
                  </property>
                 </widget>
                </item>
                <item>
-                <widget class="QSpinBox" name="spinBoxMax2">
-                 <property name="sizePolicy">
-                  <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                   <horstretch>0</horstretch>
-                   <verstretch>0</verstretch>
-                  </sizepolicy>
-                 </property>
+                <widget class="QDoubleSpinBox" name="spinBoxMax2">
                  <property name="styleSheet">
                   <string notr="true">font: 14pt &quot;Times New Roman&quot;;</string>
-                 </property>
-                 <property name="minimum">
-                  <number>-100000</number>
-                 </property>
-                 <property name="maximum">
-                  <number>100000</number>
                  </property>
                 </widget>
                </item>
@@ -238,6 +181,9 @@
                 </widget>
                </item>
               </layout>
+             </item>
+             <item>
+              <layout class="QVBoxLayout" name="verticalLayout_4"/>
              </item>
             </layout>
            </item>
