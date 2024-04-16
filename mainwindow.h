@@ -17,6 +17,8 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+
+
 private slots:
     void on_pushButtonTransform_clicked();
 
@@ -30,5 +32,11 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
+    QSize fenstergroesseOriginal;
+
+protected:
+    void resizeEvent(QResizeEvent *event) override;
+
+
 };
 #endif // MAINWINDOW_H
