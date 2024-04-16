@@ -87,19 +87,23 @@ void MainWindow::resizeEvent(QResizeEvent *event) {
     //Standard-Resize-Event
     //QWidget::resizeEvent(event);
 
-    qreal scaleX = static_cast<qreal>((this->size().width()) / fenstergroesseOriginal.width());
-    qreal scaleY = static_cast<qreal>((this->size().height()) / fenstergroesseOriginal.height());
+    qreal scaleX = (static_cast<qreal>((this->size().width())) / fenstergroesseOriginal.width());
+    qreal scaleY = (static_cast<qreal>((this->size().height())) / fenstergroesseOriginal.height());
+    qDebug() << "scaleX: " << scaleX << '\n';
+    qDebug() << "scaleY: " << scaleY << '\n';
 
 
     //Neue Schriftgröße errätseln
-    int neueSchriftgroesse = 14;
-    int neueSchriftgroesseFusszeile = 8;
-    neueSchriftgroesse = static_cast<int>((neueSchriftgroesse * qMin(scaleX, scaleY)));
-    neueSchriftgroesseFusszeile = static_cast<int>((neueSchriftgroesseFusszeile * qMin(scaleX, scaleY)));
+    qreal neueSchriftgroesse = 14.0;
+    //int neueSchriftgroesseFusszeile = 8;
+    //neueSchriftgroesse = static_cast<int>((neueSchriftgroesse * qMin(scaleX, scaleY)));
+    neueSchriftgroesse = (neueSchriftgroesse * qMin(scaleX, scaleY));
+
+    //neueSchriftgroesseFusszeile = static_cast<int>((neueSchriftgroesseFusszeile * qMin(scaleX, scaleY)));
 
     //Größenbegrenzung
-    int minimaleSchriftgroesse = 8;
-    int maximaleSchriftgroesse = 40;
+    qreal minimaleSchriftgroesse = 8.0;
+    qreal maximaleSchriftgroesse = 40.0;
 
     if (neueSchriftgroesse < minimaleSchriftgroesse) {
         neueSchriftgroesse = minimaleSchriftgroesse;
@@ -135,6 +139,8 @@ void MainWindow::resizeEvent(QResizeEvent *event) {
      ui->spinBoxMin1->setFont(fontStandard);
      ui->spinBoxMin2->setFont(fontStandard);
     // ui->labelFusszeile->setFont(fontFusszeile);
+
+     update();
 }
 
 
