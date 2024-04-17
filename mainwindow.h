@@ -33,6 +33,10 @@ private slots:
 private:
     Ui::MainWindow *ui;
     QSize fenstergroesseOriginal;
+    void schriftgroesseAnpassen(QWidget*);
+    QTimer *schriftenTimer;
+    void updateFontSize();
+
 
 protected:
     void resizeEvent(QResizeEvent *event) override;

@@ -2,8 +2,7 @@
 #include "ui_mainwindow.h"
 #include <QClipboard>
 #include <QDebug>
-//#include <QScreen>
-#include <QWindowStateChangeEvent>
+#include <QTimer>
 
 
 MainWindow::MainWindow(QWidget *parent)
@@ -24,14 +23,24 @@ MainWindow::MainWindow(QWidget *parent)
     ui->spinBoxMax2->setMinimum(-std::numeric_limits<double>::max());
     ui->spinBoxBewertung1->setMinimum(-std::numeric_limits<double>::max());
 
-    //Ursprüngliche Fenstergröße speichern zur Berechnung der Schriftgröße
+    //Ursprüngliche Fenstergröße speichern
     fenstergroesseOriginal = this->size();
+
+    ui->labelFusszeile->setStyleSheet("color: rgba(0, 0, 0, 153);"); //60 % durchsichtig
+
+    //Verzögerungszeitgeber für die Aktualisierung der Schriftgrößen nach Programmstart
+    schriftenTimer = new QTimer(this);
+    schriftenTimer->setSingleShot(true);
+    connect(schriftenTimer, &QTimer::timeout, this, &MainWindow::updateFontSize);
+    schriftenTimer->start(20); //20ms Kontemplation
 }
+
 
 MainWindow::~MainWindow()
 {
     delete ui;
 }
+
 
 void MainWindow::on_pushButtonTransform_clicked()
 {
@@ -55,7 +64,6 @@ void MainWindow::on_pushButtonTransform_clicked()
 
     //Kopieren-Schaltfläche aktivieren
     ui->pushButtonKopieren->setEnabled(true);
-
 }
 
 
@@ -82,67 +90,67 @@ void MainWindow::on_spinBoxBewertung1_valueChanged(double arg1)
     on_pushButtonTransform_clicked();
 }
 
+
+//Das überrittene Resize-Event ruft die Funktion zur Schriftgrößenanpassung auf
 void MainWindow::resizeEvent(QResizeEvent *event) {
+
     qDebug() << "resizeEvent aufgerufen\n";
-    //Standard-Resize-Event
-    //QWidget::resizeEvent(event);
 
-    qreal scaleX = (static_cast<qreal>((this->size().width())) / fenstergroesseOriginal.width());
-    qreal scaleY = (static_cast<qreal>((this->size().height())) / fenstergroesseOriginal.height());
-    qDebug() << "scaleX: " << scaleX << '\n';
-    qDebug() << "scaleY: " << scaleY << '\n';
+    QSize fenstergroesseNeu = this->size();
+    qDebug() << "Alte Fenstergröße: " << fenstergroesseOriginal << '\n';
+    qDebug() << "Neue Fenstergröße: " << fenstergroesseNeu << '\n';
 
-
-    //Neue Schriftgröße errätseln
-    qreal neueSchriftgroesse = 14.0;
-    //int neueSchriftgroesseFusszeile = 8;
-    //neueSchriftgroesse = static_cast<int>((neueSchriftgroesse * qMin(scaleX, scaleY)));
-    neueSchriftgroesse = (neueSchriftgroesse * qMin(scaleX, scaleY));
-
-    //neueSchriftgroesseFusszeile = static_cast<int>((neueSchriftgroesseFusszeile * qMin(scaleX, scaleY)));
-
-    //Größenbegrenzung
-    qreal minimaleSchriftgroesse = 8.0;
-    qreal maximaleSchriftgroesse = 40.0;
-
-    if (neueSchriftgroesse < minimaleSchriftgroesse) {
-        neueSchriftgroesse = minimaleSchriftgroesse;
-    } else if (neueSchriftgroesse > maximaleSchriftgroesse) {
-        neueSchriftgroesse = maximaleSchriftgroesse;
+    if (fenstergroesseOriginal != fenstergroesseNeu){
+    schriftgroesseAnpassen(ui->centralwidget);
+    fenstergroesseOriginal = fenstergroesseNeu;
     }
 
-    // if (neueSchriftgroesseFusszeile < minimaleSchriftgroesse) {
-    //     neueSchriftgroesseFusszeile = minimaleSchriftgroesse;
-    // } else if (neueSchriftgroesseFusszeile > maximaleSchriftgroesse) {
-    //     neueSchriftgroesseFusszeile = maximaleSchriftgroesse;
-    // }
-
-    QFont fontStandard = QFont("Times New Roman", neueSchriftgroesse);
-    // QFont fontFusszeile = QFont("Times New Roman", neueSchriftgroesse);
-
-    //Schriftgröße setzen
-     ui->pushButtonBeenden->setFont(fontStandard);
-     ui->pushButtonKopieren->setFont(fontStandard);
-     ui->pushButtonTransform->setFont(fontStandard);
-     ui->groupBox->setFont(fontStandard);
-     ui->groupBox_3->setFont(fontStandard);
-     ui->label->setFont(fontStandard);
-     ui->labelBewertung->setFont(fontStandard);
-     ui->label_2->setFont(fontStandard);
-     ui->label_3->setFont(fontStandard);
-     ui->label_4->setFont(fontStandard);
-     ui->label_5->setFont(fontStandard);
-     ui->label_6->setFont(fontStandard);
-     ui->spinBoxBewertung1->setFont(fontStandard);
-     ui->spinBoxMax1->setFont(fontStandard);
-     ui->spinBoxMax2->setFont(fontStandard);
-     ui->spinBoxMin1->setFont(fontStandard);
-     ui->spinBoxMin2->setFont(fontStandard);
-    // ui->labelFusszeile->setFont(fontFusszeile);
-
-     update();
 }
 
 
+void MainWindow::schriftgroesseAnpassen(QWidget* parentWidget) {
+    qDebug() << "schriftgroesseAnpassen aufgerufen\n";
+    qDebug() << "Label Font: " << ui->label->font() << '\n';
+    qDebug() << "Beenden Font: " << ui->pushButtonBeenden->font() << '\n';
+    qDebug() << "Transformieren Font: " << ui->pushButtonTransform->font() << '\n';
 
+    //Kinder-Widgets durchstöbern
+    foreach (QObject* child, parentWidget->children()) {
+            QWidget* widget = qobject_cast<QWidget*>(child);
+            if (widget) {
+                qDebug() << "Parent-Widget: " << parentWidget << '\n';
+                qDebug() << "Widget: " << widget << '\n';
+                qDebug() << "Widget-Breite: " << widget->width() << '\n';
+                qDebug() << "Widget-Schriftgröße: " << widget->font().pointSizeF() << '\n';
+
+                //Schriftgröße definieren
+                qreal newFontSize = 1.0;
+
+                //Mt 22,21
+                if (widget->objectName() == "labelFusszeile"){
+                    newFontSize = static_cast<qreal>(widget->width()) * 0.018;
+                } else if (widget->objectName() == "labelScala2" || widget->objectName() == "labelScala1"){
+                    newFontSize = static_cast<qreal>(widget->width()) * 0.07;
+                } else{
+                     newFontSize = static_cast<qreal>(widget->width()) * 0.1;
+                }
+
+                QFont font = widget->font();
+                font.setPointSizeF(newFontSize);
+                widget->setFont(font);
+                qDebug() << "Objektname: " << widget->objectName() << '\n';
+                qDebug() << "Widget neue Schriftgröße: " << widget->font().pointSizeF() << '\n';
+            }
+        }
+    }
+
+
+//Timer-Methode, die die Anpassung der Schriftgrößen nach Programmstart freundlichst verzögert
+void MainWindow::updateFontSize() {
+    schriftgroesseAnpassen(ui->centralwidget);
+
+    if (schriftenTimer->isActive()){
+    schriftenTimer->stop();
+    }
+}
 
