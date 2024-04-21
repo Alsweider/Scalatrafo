@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>524</width>
-    <height>259</height>
+    <height>262</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -17,7 +17,11 @@
    </sizepolicy>
   </property>
   <property name="windowTitle">
-   <string>Scalatrafo v0.1.0</string>
+   <string>Scalatrafo v0.1.1</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="ressourcen.qrc">
+    <normaloff>:/bilder/icon.ico</normaloff>:/bilder/icon.ico</iconset>
   </property>
   <widget class="QWidget" name="centralwidget">
    <property name="sizePolicy">
@@ -589,6 +593,8 @@
    </layout>
   </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="ressourcen.qrc"/>
+ </resources>
  <connections/>
 </ui>
