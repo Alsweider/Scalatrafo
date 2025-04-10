@@ -17,7 +17,7 @@
    </sizepolicy>
   </property>
   <property name="windowTitle">
-   <string>Scalatrafo v0.2.0</string>
+   <string>Scalatrafo v0.2.1</string>
   </property>
   <property name="windowIcon">
    <iconset resource="ressourcen.qrc">

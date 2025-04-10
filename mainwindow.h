@@ -34,17 +34,8 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
-    //QSize fenstergroesseOriginal;
-    //void schriftgroesseAnpassen(QWidget*);
-    //QTimer *schriftenTimer;
-    //void updateFontSize();
     QString ergebnisText;
     double ergebnis;
-
-
-protected:
-    // void resizeEvent(QResizeEvent *event) override;
-
 
 };
 #endif // MAINWINDOW_H
