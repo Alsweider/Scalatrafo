@@ -30,16 +30,20 @@ private slots:
 
     void on_spinBoxBewertung1_valueChanged(double arg1);
 
+    void on_comboBoxRunden_currentIndexChanged(int index);
+
 private:
     Ui::MainWindow *ui;
-    QSize fenstergroesseOriginal;
-    void schriftgroesseAnpassen(QWidget*);
-    QTimer *schriftenTimer;
-    void updateFontSize();
+    //QSize fenstergroesseOriginal;
+    //void schriftgroesseAnpassen(QWidget*);
+    //QTimer *schriftenTimer;
+    //void updateFontSize();
+    QString ergebnisText;
+    double ergebnis;
 
 
 protected:
-    void resizeEvent(QResizeEvent *event) override;
+    // void resizeEvent(QResizeEvent *event) override;
 
 
 };
