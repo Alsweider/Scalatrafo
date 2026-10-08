@@ -3,7 +3,7 @@
 
 Neueste Version: [Herunterladen](https://github.com/Alsweider/Scalatrafo/releases/latest)
 
-![2025-04-10 14_00_42-Scalatrafo v0 2 0](https://github.com/user-attachments/assets/779167e9-b6c5-4577-bfd5-071cd993c012)
+<img width="586" height="294" alt="2026-10-08 02_20_13-Scalatrafo v0 3 0" src="https://github.com/user-attachments/assets/ee871941-51b3-49ee-b54a-2dcc63bf5a61" />
 
 Nehmen wir einmal an, Sie sind auf verschiedenen Filmbewertungsportalen unterwegs und denken sich: "Auf IMDb.com habe ich diesen Film mit 7 von 10 Sternen bewertet. Auf Criticker.com gehen die Bewertungen bis 100, also vergebe ich dort 70 von 100 Punkten." Das wäre eine ungenaue Übertragung[^1], denn auf IMDb beginnt die Skala bei 1 und geht bis 10, während Criticker eine Skala von 0 bis 100 ermöglicht. Der Faktor 10 passt also nicht, wenn man erreichen möchte, dass etwa die unterste Bewertungsstufe auf Skala 1 auch der niedrigstmöglichen Bewertung auf Skala 2 entspricht. Um eine genaue Entsprechung der Bewertungen zu ermöglichen, bedient sich dieses Programm einer Formel für die lineare Abbildung.
 
