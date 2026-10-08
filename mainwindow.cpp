@@ -2,6 +2,7 @@
 #include "ui_mainwindow.h"
 #include <QClipboard>
 #include <QDebug>
+#include <cmath>
 
 
 MainWindow::MainWindow(QWidget *parent)
@@ -26,6 +27,21 @@ MainWindow::MainWindow(QWidget *parent)
 
     ui->labelFusszeile->setStyleSheet("color: rgba(0, 0, 0, 153);"); //60 % durchsichtig
 
+    //Jede Eingabe löst sofort die Neuberechnung aus
+    const QList<QDoubleSpinBox *> eingaben = {
+        ui->spinBoxMin1, ui->spinBoxMax1, ui->spinBoxMin2,
+        ui->spinBoxMax2, ui->spinBoxBewertung1
+    };
+    for (QDoubleSpinBox *box : eingaben) {
+        connect(box, qOverload<double>(&QDoubleSpinBox::valueChanged),
+                this, &MainWindow::on_pushButtonTransform_clicked);
+    }
+
+    //Auch die Zahl der Nachkommastellen löst die Neuberechnung aus
+    connect(ui->spinBoxStellen, qOverload<int>(&QSpinBox::valueChanged),
+            this, &MainWindow::on_pushButtonTransform_clicked);
+
+    ui->spinBoxMin1->setFocus();   //Eingabe beginnt bei Minimum 1
 }
 
 
@@ -37,6 +53,12 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_pushButtonTransform_clicked()
 {
+    //Bei Fehlern Meldung zeigen und Kopieren sperren
+    auto fehler = [this](const QString &text) {
+        ui->labelBewertung->setText(text);
+        ui->pushButtonKopieren->setEnabled(false);
+    };
+
     //Zahlen einlesen
     double spinBoxMin1 = ui->spinBoxMin1->value();
     double spinBoxMax1 = ui->spinBoxMax1->value();
@@ -44,17 +66,13 @@ void MainWindow::on_pushButtonTransform_clicked()
     double spinBoxMax2 = ui->spinBoxMax2->value();
     double spinBoxBewertung1 = ui->spinBoxBewertung1->value();
 
-    if (spinBoxMin1 >= spinBoxMax1) {
-        ui->labelBewertung->setText("Ungültig: min >= max");
-        return;
-    }
-    if (spinBoxMin2 >= spinBoxMax2) {
-        ui->labelBewertung->setText("Ungültig: min >= max");
+    if (spinBoxMin1 >= spinBoxMax1 || spinBoxMin2 >= spinBoxMax2) {
+        fehler("Ungültig: min >= max");
         return;
     }
 
     if (spinBoxBewertung1 < spinBoxMin1 || spinBoxBewertung1 > spinBoxMax1) {
-        ui->labelBewertung->setText("min/max überschritten");
+        fehler("min/max überschritten");
         return;
     }
 
@@ -63,18 +81,37 @@ void MainWindow::on_pushButtonTransform_clicked()
     double yAchse = (spinBoxMin2 - (steigung * spinBoxMin1));
     ergebnis = ((steigung*spinBoxBewertung1)+yAchse);
 
+    //Gleitkommarauschen wegrunden (nach 9 Nachkommastellen), damit genaue
+    //Halbstufen wie 4,5 nicht als 4,4999999999999 in die Rundung gelangen
+    if (std::abs(ergebnis) < 1e6)
+        ergebnis = std::round(ergebnis * 1e9) / 1e9;
 
-    //Ergebnis in Zeichenkette umwandeln
-    if (ui->comboBoxRunden->currentIndex() == 0){
-        ergebnisText = QLocale::system().toString(ergebnis, 'f', 2);
-    } else if (ui->comboBoxRunden->currentIndex() == 1){
-            ergebnis = qRound(ergebnis);
-            ergebnisText = QLocale::system().toString(ergebnis);
-    } else if (ui->comboBoxRunden->currentIndex() == 2){
-            double gerundet = qRound(ergebnis * 2.0) / 2.0;
-            ergebnisText = QLocale::system().toString(gerundet, 'f', 2);
+    //Ergebnis nach gewählter Rundung in eine Zeichenkette umwandeln
+    QLocale ort = QLocale::system();
+    ort.setNumberOptions(QLocale::OmitGroupSeparator);   //keine Tausenderpunkte
+
+    switch (ui->comboBoxRunden->currentIndex()) {
+    case 1:   //Ganzzahlen
+        ergebnis = std::round(ergebnis);
+        ergebnisText = ort.toString(ergebnis, 'f', 0);
+        break;
+    case 2:   //Halbzahlen
+        ergebnis = std::round(ergebnis * 2.0) / 2.0;
+        ergebnisText = ort.toString(ergebnis, 'f', 1);
+        break;
+    case 3:   //Viertelzahlen
+        ergebnis = std::round(ergebnis * 4.0) / 4.0;
+        ergebnisText = ort.toString(ergebnis, 'f', 2);
+        break;
+    default:  //Dezimalzahlen
+        ergebnisText = ort.toString(ergebnis, 'f', ui->spinBoxStellen->value());
+        break;
     }
 
+    //Aus "-0" oder "-0,00" wird "0" bzw. "0,00"
+    const QString minus = ort.negativeSign();
+    if (ergebnisText.startsWith(minus) && ort.toDouble(ergebnisText) == 0.0)
+        ergebnisText.remove(0, minus.size());
 
     ui->labelBewertung->setText(ergebnisText);
 
@@ -89,26 +126,15 @@ void MainWindow::on_pushButtonBeenden_clicked()
 }
 
 
-void MainWindow::on_spinBoxMax2_editingFinished()
-{
-    on_pushButtonTransform_clicked();
-}
-
-
 void MainWindow::on_pushButtonKopieren_clicked()
 {
     QApplication::clipboard()->setText(ui->labelBewertung->text());
 }
 
 
-void MainWindow::on_spinBoxBewertung1_valueChanged(double arg1)
-{
-    on_pushButtonTransform_clicked();
-}
-
-
 void MainWindow::on_comboBoxRunden_currentIndexChanged(int index)
 {
-        on_pushButtonTransform_clicked();
+    ui->spinBoxStellen->setEnabled(index == 0);
+    on_pushButtonTransform_clicked();
 }
 

@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>524</width>
+    <width>584</width>
     <height>262</height>
    </rect>
   </property>
@@ -17,7 +17,7 @@
    </sizepolicy>
   </property>
   <property name="windowTitle">
-   <string>Scalatrafo v0.2.1</string>
+   <string>Scalatrafo v0.3.0</string>
   </property>
   <property name="windowIcon">
    <iconset resource="ressourcen.qrc">
@@ -354,9 +354,12 @@
           <pointsize>14</pointsize>
          </font>
         </property>
+        <property name="toolTip">
+         <string>Rundung des Ergebnisses: Dezimalzahlen (Nachkommastellen einstellbar), Ganzzahlen (auf 1er gerundet), Halbzahlen (auf 0,5er gerundet), Viertelzahlen (auf 0,25er gerundet).</string>
+        </property>
         <item>
          <property name="text">
-          <string>Nicht runden (Q)</string>
+          <string>Dezimalzahlen (ℚ)</string>
          </property>
         </item>
         <item>
@@ -369,6 +372,33 @@
           <string>Halbzahlen (0,5)</string>
          </property>
         </item>
+        <item>
+         <property name="text">
+          <string>Viertelzahlen (0,25)</string>
+         </property>
+        </item>
+       </widget>
+      </item>
+      <item>
+       <widget class="QSpinBox" name="spinBoxStellen">
+        <property name="font">
+         <font>
+          <family>Times New Roman</family>
+          <pointsize>14</pointsize>
+         </font>
+        </property>
+        <property name="toolTip">
+         <string>Anzahl der Nachkommastellen bei Dezimalzahlen</string>
+        </property>
+        <property name="suffix">
+         <string> Stellen</string>
+        </property>
+        <property name="maximum">
+         <number>6</number>
+        </property>
+        <property name="value">
+         <number>2</number>
+        </property>
        </widget>
       </item>
       <item>
@@ -621,6 +651,18 @@
    </layout>
   </widget>
  </widget>
+ <tabstops>
+  <tabstop>spinBoxMin1</tabstop>
+  <tabstop>spinBoxMax1</tabstop>
+  <tabstop>spinBoxBewertung1</tabstop>
+  <tabstop>spinBoxMin2</tabstop>
+  <tabstop>spinBoxMax2</tabstop>
+  <tabstop>pushButtonTransform</tabstop>
+  <tabstop>comboBoxRunden</tabstop>
+  <tabstop>spinBoxStellen</tabstop>
+  <tabstop>pushButtonKopieren</tabstop>
+  <tabstop>pushButtonBeenden</tabstop>
+ </tabstops>
  <resources>
   <include location="ressourcen.qrc"/>
  </resources>
